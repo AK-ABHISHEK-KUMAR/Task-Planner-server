@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.json());
-app.use(cors({origin: "https://task-plannner.onrender.com"}));
+app.use(cors({origin: "https://task-plannner.onrender.com/*"}));
 
 // app.get("/", (req, res) => res.send("Hello World!"));
 
