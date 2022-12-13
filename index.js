@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const todoRoute = require("./routes/todosRoute");
 
-const DB_URL = "mongodb://0.0.0.0:27017/TodoList";
+const LOCAL_DB_URL = "mongodb://0.0.0.0:27017/TodoList";
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -16,7 +16,7 @@ app.use(cors());
 app.use("/todos", todoRoute);
 
 mongoose
-  .connect(DB_URL, {
+  .connect(process.env.DB_URL || LOCAL_DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
